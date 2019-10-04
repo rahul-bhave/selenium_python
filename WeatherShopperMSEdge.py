@@ -8,7 +8,7 @@ class weathershopper_tests():
        try:     
             edge_path ="C:\\Program Files (x86)\\MicrosoftWebDriver\\MicrosoftWebDriver.exe"
             self.driver = webdriver.Edge(edge_path)
-            # self.driver.implicitly_wait(10)
+            self.driver.implicitly_wait(10)
             # driver.maximize_window()
             
 
