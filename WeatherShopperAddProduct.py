@@ -4,8 +4,9 @@
 from selenium import webdriver
 from page_objects import PageFactory
 import conf.locators_conf as locators
-# from utils.Wrapit import Wrapit
-# from page_objects.Base_Page import Base_Page
+import conf.product_payment_conf as product
+from utils.Wrapit import Wrapit
+from page_objects.Base_Page import Base_Page
 import re
 import time
 
@@ -13,9 +14,11 @@ class weathershopper_tests():
 
     product_price_element = locators.product_price_element
     product_add_element = locators.product_add_element
-    product_category = []    
-    product_moisturizers_category = []
-    product_sunscreens_category = []
+    product_category = []   
+    cart_button = locators.click_cart  
+    checkout_heading = locators.checkout_heading  
+    product_moisturizers_category = product.product_moisturizers_category
+    product_sunscreens_category = product.product_sunscreens_category
 
     def setUp(self):
        
