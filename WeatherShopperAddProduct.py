@@ -62,17 +62,24 @@ class weathershopper_tests():
 
                   links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'SPF-30')]")
                   for link in links:
-   
                      product_price=10000
                      product_elements=self.get_elements(self.product_price_element%link)
+                     
+                     count(product_elements)
+                     print(product_elements)
+
                      for element in product_elements:
                          product_price = element.text()
                          product_price = re.findall(r'\b\d+\b', product_price)
+                         
+                         print(product_price)
+
                          if int(product_price[0]) < price_product:                   
                            price_product = int(product_price[0])
                            self.click_element(self.product_add_element%(link,price_product))
                   
                   print(links)
+                  len(links)
                   time.sleep(5)
                           
                else:
@@ -98,14 +105,24 @@ class weathershopper_tests():
                   for link in links:
                      product_price=10000
                      product_elements=self.get_elements(self.product_price_element%link)
+                     
+                     len(product_elements)
+                     print(product_elements)
+
                      for element in product_elements:
                          product_price = element.text()
                          product_price = re.findall(r'\b\d+\b', product_price)
+                         
+                         print(product_price)
+
                          if int(product_price[0]) < price_product:                   
                            price_product = int(product_price[0])
                            self.click_element(self.product_add_element%(link,price_product))
+                  
+                  len(links)
                   print(links)
                   time.sleep(5)
+                  
 
 
                else:
