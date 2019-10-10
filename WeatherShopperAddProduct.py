@@ -80,10 +80,10 @@ class weathershopper_tests():
                 if int(product_price[0]) < price_product:                   
                     price_product = int(product_price[0])                               
             result_flag = self.click_element(self.product_add_element%(product,price_product))
-            self.conditional_write(result_flag,
-                                positive='Successfully added products',
-                                negative='Failed to add products',
-                                level='debug')        
+            # self.conditional_write(result_flag,
+                                # positive='Successfully added products',
+                                # negative='Failed to add products',
+                                # level='debug')        
         return result_flag
 
     def get_elements(self,locator,msg_flag=True):
@@ -112,6 +112,17 @@ class weathershopper_tests():
            print(e)
 
         return result_flag
+   
+    def split_locator(self,locator):
+        "Split the locator type and locator"
+        result = ()
+        try:
+            result = tuple(locator.split(',',1))            
+        except Exception as e:
+            # self.write("Error while parsing locator")
+            # self.exceptions.append("Unable to split the locator-'%s' in the conf/locators.conf file"%(locator[0],locator[1]))
+           print(e)   
+        return result
 
     def tearDown(self):
         self.driver.quit()
