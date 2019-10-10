@@ -174,10 +174,31 @@ class weathershopper_tests():
             self.switch_page("cart")
 
         return result_flag 
-       def switch_page(self,page_name):
+    def switch_page(self,page_name):
         "Switch the underlying class to the required Page"
         self.__class__ = PageFactory.PageFactory.get_page_object(page_name,base_url=self.base_url).__class__     
 
+    def check_element_present(self,locator):
+        "This method checks if the web element is present in page or not and returns True or False accordingly"
+        result_flag = False
+        if self.get_element(locator,verbose_flag=False) is not None:
+            result_flag = True
+        
+        return result_flag
+
+    def get_element(self,locator,verbose_flag=True):
+        "Return the DOM element of the path or 'None' if the element is not found "
+        dom_element = None
+        try:            
+            locator = self.split_locator(locator)            
+            dom_element = self.driver.find_element(*locator)            
+        except Exception as e:            
+            # if verbose_flag is True:
+                # self.write(str(e),'debug')
+                # self.write("Check your locator-'%s,%s' in the conf/locators.conf file" %(locator[0],locator[1]))
+            # self.exceptions.append("Check your locator-'%s,%s' in the conf/locators.conf file" %(locator[0],locator[1]))
+            print(e)    
+        return dom_element
     def tearDown(self):
         self.driver.quit()
 
