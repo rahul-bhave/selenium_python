@@ -77,7 +77,6 @@ class weathershopper_tests():
         try:
             window_before = self.driver.window_handles[0]
             print ("window before %s"% window_before)
-            
             self.driver.find_element_by_xpath("//button[span[text()='Pay with Card']]").click()
             result_flag=self.driver.find_element_by_xpath("//iframe[@name='stripe_checkout_app']")
             self.driver.switch_to_frame(result_flag)
