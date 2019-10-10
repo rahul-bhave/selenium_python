@@ -1,16 +1,21 @@
 
 
-import time
+
 from selenium import webdriver
+from page_objects import PageFactory
 import conf.locators_conf as locators
 # from utils.Wrapit import Wrapit
 # from page_objects.Base_Page import Base_Page
 import re
+import time
 
 class weathershopper_tests():
 
     product_price_element = locators.product_price_element
     product_add_element = locators.product_add_element
+    product_category = []    
+    product_moisturizers_category = []
+    product_sunscreens_category = []
 
     def setUp(self):
        
@@ -124,14 +129,66 @@ class weathershopper_tests():
            print(e)   
         return result
 
+    def process_selected_products(self,product_category):
+        "Process the selected products"        
+        result_flag = self.add_products(product_category)
+        result_flag &= self.click_cart()
+        result_flag &= self.check_redirect_cart()
+        
+        return result_flag
+
+    def select_product_type(self,product_moisturizers_category,product_sunscreens_category):
+        "Select products type"
+        title = self.get_title() 
+        title = title.decode('utf-8')       
+        result_flag = None    
+        if title in "Moisturizers":           
+            result_flag = self.process_selected_products(product_moisturizers_category)            
+        elif title in 'Sunscreens':            
+            result_flag = self.process_selected_products(product_sunscreens_category)               
+
+        return result_flag   
+
+    def click_cart(self):
+        "Click on the Cart button"
+        result_flag = self.click_element(self.cart_button)
+        # self.conditional_write(result_flag,
+            # positive='Clicked on the "cart" button',
+            # negative='Failed to click on "cart" button',
+            # level='debug')
+
+        return result_flag     
+
+    def check_redirect_cart(self):
+        "Check if we have been redirected to the redirect page"
+        result_flag = False        
+        #self.driver.title = "The best sunscreens in the world!"
+        #remove after Arun changes the title for sunscreens      
+            
+        result_flag = True if self.check_element_present(self.checkout_heading) else False        
+        # self.conditional_write(result_flag,
+                               # positive="User is redirected to cart Page ",
+                               # negative="User is not redirected to cart Page",
+                               # level='debug')
+        if result_flag == True:
+            self.switch_page("cart")
+
+        return result_flag 
+       def switch_page(self,page_name):
+        "Switch the underlying class to the required Page"
+        self.__class__ = PageFactory.PageFactory.get_page_object(page_name,base_url=self.base_url).__class__     
+
     def tearDown(self):
         self.driver.quit()
+
+   
 
 if __name__ == "__main__":
     
     weather=weathershopper_tests()
     weather.setUp()
     weather.buy_item()
+    weather.add_products()
     weather.tearDown()
     
     
