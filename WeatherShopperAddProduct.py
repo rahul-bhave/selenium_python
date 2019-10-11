@@ -17,8 +17,8 @@ class weathershopper_tests():
     product_category = []   
     cart_button = locators.click_cart  
     checkout_heading = locators.checkout_heading  
-    product_moisturizers_category = product.product_moisturizers_category
-    product_sunscreens_category = product.product_sunscreens_category
+    product_moisturizers_category = ['Aloe','Almond']
+    product_sunscreens_category = ['SPF-50','SPF-30']
 
     def setUp(self):
        
@@ -59,28 +59,54 @@ class weathershopper_tests():
                   # print("All items added")
                   # 
                   ##################Code for SPF 30##########################################
-
-                  links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'SPF-30')]")
-                  for link in links:
-                     product_price=10000
-                     product_elements=self.get_elements(self.product_price_element%link)
-                     
-                     count(product_elements)
-                     print(product_elements)
-
-                     for element in product_elements:
-                         product_price = element.text()
-                         product_price = re.findall(r'\b\d+\b', product_price)
-                         
-                         print(product_price)
-
-                         if int(product_price[0]) < price_product:                   
-                           price_product = int(product_price[0])
-                           self.click_element(self.product_add_element%(link,price_product))
                   
-                  print(links)
-                  len(links)
+                  
+                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'SPF-30')]")
+                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']")
+                  #for link in links:
+                     #product_price=10000
+                     # product_elements=self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/p[2]").text()
+                     # product_elements=self.get_elements(self.product_price_element%link)
+                     #product_elements=self.get_elements(self.product_price_element%link)
+                     # product_elements=self.driver.find_elements_by_class_name('font-weight-bold top-space-10').getText()
+                     
+                     # count(product_elements)
+                     #print(product_elements)
+
+                     #for element in product_elements:
+                        #product_price = element.text()
+                        #product_price = re.findall(r'\b\d+\b', product_price)
+                         
+                        #print(product_price)
+
+                        #if int(product_price[0]) < price_product:                   
+                           #price_product = int(product_price[0])
+                           #self.click_element(self.product_add_element%(link,price_product))
+                  
+                  # print(links)
+                  # len(links)
                   time.sleep(5)
+
+                  #############################code from framework########################################
+
+                  result_flag = False   
+                  for product in self.product_sunscreens_category:
+                     price_product = 100000          
+                     product_elements = self.get_elements(self.product_price_element%product)            
+                     for element in product_elements:                           
+                        product_price = element.text                                   
+                        product_price = re.findall(r'\b\d+\b', product_price)                        
+                        if int(product_price[0]) < price_product:                   
+                           price_product = int(product_price[0])                               
+                  result_flag = self.click_element(self.product_add_element%(product,price_product))
+                  # self.conditional_write(result_flag,
+                                #positive='Successfully added products',
+                                #negative='Failed to add products',
+                                #level='debug')        
+
+                  return result_flag
+
+                  ############################ end ########################################################
                           
                else:
                   print("You are on wrong page")               
@@ -101,29 +127,51 @@ class weathershopper_tests():
 
                   ###########code for selecting product based on criteria Aloe ######################
                   
-                  links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'Aloe')]")
-                  for link in links:
-                     product_price=10000
-                     product_elements=self.get_elements(self.product_price_element%link)
+                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'Aloe')]")
+                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']")
+                  #for link in links:
+                     #product_price=10000
+                     # product_elements=self.get_elements(self.product_price_element%link)
+                     # product_elements=self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/p[2]").text()
+                     #product_elements=self.get_elements(self.product_price_element%link)
+                     # product_elements=self.driver.find_elements_by_class_name('font-weight-bold top-space-10').getText()
                      
-                     len(product_elements)
-                     print(product_elements)
-
-                     for element in product_elements:
-                         product_price = element.text()
-                         product_price = re.findall(r'\b\d+\b', product_price)
+                     # count(product_elements)
+                     #print(product_elements)
+                     #for element in product_elements:
+                        #product_price = element.text()
+                        #product_price = re.findall(r'\b\d+\b', product_price)
                          
-                         print(product_price)
+                        #print(product_price)
 
-                         if int(product_price[0]) < price_product:                   
-                           price_product = int(product_price[0])
-                           self.click_element(self.product_add_element%(link,price_product))
+                        #if int(product_price[0]) < price_product:                   
+                           #price_product = int(product_price[0])
+                           #self.click_element(self.product_add_element%(link,price_product))
                   
-                  len(links)
-                  print(links)
+                  # len(links)
+                  # print(links)
                   time.sleep(5)
                   
+                   #############################code from framework########################################
 
+                  result_flag = False   
+                  for product in self.product_moisturizers_category:
+                     price_product = 100000          
+                     product_elements = self.get_elements(self.product_price_element%product)            
+                     for element in product_elements:                           
+                        product_price = element.text                                   
+                        product_price = re.findall(r'\b\d+\b', product_price)                        
+                        if int(product_price[0]) < price_product:                   
+                           price_product = int(product_price[0])                               
+                  result_flag = self.click_element(self.product_add_element%(product,price_product))
+                  # self.conditional_write(result_flag,
+                                # positive='Successfully added products',
+                                # negative='Failed to add products',
+                                # level='debug')        
+
+                  return result_flag
+
+                  ############################ end ########################################################
 
                else:
                   print("You are on wrong page")
