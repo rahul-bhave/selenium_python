@@ -105,15 +105,16 @@ class weathershopper_tests():
                         if int(product_price[0]) < price_product:                   
                            price_product = int(product_price[0]) 
                            print(price_product)
-
-                  result_flag = self.click_element(self.product_add_element%(product,price_product))
+                           self.click_element(self.product_add_element%(product,price_product))
+                           # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
+                  # result_flag = self.click_element(self.product_add_element%(product,price_product))
                   # self.conditional_write(result_flag,
                                 #positive='Successfully added products',
                                 #negative='Failed to add products',
                                 #level='debug')        
 
                   return result_flag
-                  print(result_flag)
+                  # print(result_flag)
 
                   ############################ end ########################################################
                           
@@ -177,15 +178,17 @@ class weathershopper_tests():
                         if int(product_price[0]) < price_product:                   
                            price_product = int(product_price[0])
                            print(price_product)
-                                                      
-                  result_flag = self.click_element(self.product_add_element%(product,price_product))
+                           self.click_element(self.product_add_element%(product,price_product))
+                           # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
+                  # result_flag = self.click_element(self.product_add_element%(product,price_product))
+                  
                   # self.conditional_write(result_flag,
                                 # positive='Successfully added products',
                                 # negative='Failed to add products',
                                 # level='debug')        
 
                   return result_flag
-                  print(result_flag)
+                  # print(result_flag)
 
                   ############################ end ########################################################
 
