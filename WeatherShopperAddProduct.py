@@ -59,35 +59,7 @@ class weathershopper_tests():
                       # time.sleep(5)
                   # print("All items added")
                   # 
-                  ##################Code for SPF 30##########################################
-                  
-                  
-                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'SPF-30')]")
-                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']")
-                  #for link in links:
-                     #product_price=10000
-                     # product_elements=self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/p[2]").text()
-                     # product_elements=self.get_elements(self.product_price_element%link)
-                     #product_elements=self.get_elements(self.product_price_element%link)
-                     # product_elements=self.driver.find_elements_by_class_name('font-weight-bold top-space-10').getText()
-                     
-                     # count(product_elements)
-                     #print(product_elements)
-
-                     #for element in product_elements:
-                        #product_price = element.text()
-                        #product_price = re.findall(r'\b\d+\b', product_price)
-                         
-                        #print(product_price)
-
-                        #if int(product_price[0]) < price_product:                   
-                           #price_product = int(product_price[0])
-                           #self.click_element(self.product_add_element%(link,price_product))
-                  
-                  # print(links)
-                  # len(links)
-                  
-
+               
                   #############################code from framework########################################
 
                   result_flag = False   
@@ -110,7 +82,7 @@ class weathershopper_tests():
                   time.sleep(15)
                   self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
                   print("All items added")
-                           # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
+                           
                   # result_flag = self.click_element(self.product_add_element%(product,price_product))
                   # self.conditional_write(result_flag,
                                 #positive='Successfully added products',
@@ -118,7 +90,7 @@ class weathershopper_tests():
                                 #level='debug')        
 
                   return result_flag
-                  # print(result_flag)
+                  
 
                   ############################ end ########################################################
                           
@@ -139,32 +111,6 @@ class weathershopper_tests():
                       #time.sleep(5)
                   # print("All items added")
 
-                  ###########code for selecting product based on criteria Aloe ######################
-                  
-                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']/descendant::p[contains(text(),'Aloe')]")
-                  #links = self.driver.find_elements_by_xpath("//div[@class='text-center col-4']")
-                  #for link in links:
-                     #product_price=10000
-                     # product_elements=self.get_elements(self.product_price_element%link)
-                     # product_elements=self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[1]/p[2]").text()
-                     #product_elements=self.get_elements(self.product_price_element%link)
-                     # product_elements=self.driver.find_elements_by_class_name('font-weight-bold top-space-10').getText()
-                     
-                     # count(product_elements)
-                     #print(product_elements)
-                     #for element in product_elements:
-                        #product_price = element.text()
-                        #product_price = re.findall(r'\b\d+\b', product_price)
-                         
-                        #print(product_price)
-
-                        #if int(product_price[0]) < price_product:                   
-                           #price_product = int(product_price[0])
-                           #self.click_element(self.product_add_element%(link,price_product))
-                  
-                  # len(links)
-                  # print(links)
-                  
                   
                    #############################code from framework########################################
 
@@ -188,7 +134,7 @@ class weathershopper_tests():
                   self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
                   print("All items added")
 
-                           # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
+                  
                   # result_flag = self.click_element(self.product_add_element%(product,price_product))
                   
                   # self.conditional_write(result_flag,
@@ -197,7 +143,7 @@ class weathershopper_tests():
                                 # level='debug')        
 
                   return result_flag
-                  # print(result_flag)
+                  
 
                   ############################ end ########################################################
 
