@@ -106,6 +106,9 @@ class weathershopper_tests():
                            price_product = int(product_price[0]) 
                            print(price_product)
                            self.click_element(self.product_add_element%(product,price_product))
+                           time.sleep(15)
+                           self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
+                           print("All items added")
                            # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
                   # result_flag = self.click_element(self.product_add_element%(product,price_product))
                   # self.conditional_write(result_flag,
@@ -179,6 +182,10 @@ class weathershopper_tests():
                            price_product = int(product_price[0])
                            print(price_product)
                            self.click_element(self.product_add_element%(product,price_product))
+                           time.sleep(15)
+                           self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
+                           print("All items added")
+
                            # self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]").click()
                   # result_flag = self.click_element(self.product_add_element%(product,price_product))
                   
