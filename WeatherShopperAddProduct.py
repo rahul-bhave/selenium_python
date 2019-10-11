@@ -7,6 +7,7 @@ import conf.locators_conf as locators
 import conf.product_payment_conf as product
 from utils.Wrapit import Wrapit
 from page_objects.Base_Page import Base_Page
+from selenium.webdriver.support.ui import WebDriverWait
 import re
 import time
 
@@ -85,19 +86,26 @@ class weathershopper_tests():
                   
                   # print(links)
                   # len(links)
-                  time.sleep(5)
+                  
 
                   #############################code from framework########################################
 
                   result_flag = False   
                   for product in self.product_sunscreens_category:
                      price_product = 100000          
-                     product_elements = self.get_elements(self.product_price_element%product)            
+                     product_elements = self.get_elements(self.product_price_element%product)
+                     print(product_elements)
+
                      for element in product_elements:                           
                         product_price = element.text                                   
-                        product_price = re.findall(r'\b\d+\b', product_price)                        
+                        product_price = re.findall(r'\b\d+\b', product_price) 
+
+                        print(product_price)
+                                               
                         if int(product_price[0]) < price_product:                   
-                           price_product = int(product_price[0])                               
+                           price_product = int(product_price[0]) 
+                           print(price_product)
+
                   result_flag = self.click_element(self.product_add_element%(product,price_product))
                   # self.conditional_write(result_flag,
                                 #positive='Successfully added products',
@@ -105,6 +113,7 @@ class weathershopper_tests():
                                 #level='debug')        
 
                   return result_flag
+                  print(result_flag)
 
                   ############################ end ########################################################
                           
@@ -150,19 +159,25 @@ class weathershopper_tests():
                   
                   # len(links)
                   # print(links)
-                  time.sleep(5)
+                  
                   
                    #############################code from framework########################################
 
                   result_flag = False   
                   for product in self.product_moisturizers_category:
                      price_product = 100000          
-                     product_elements = self.get_elements(self.product_price_element%product)            
+                     product_elements = self.get_elements(self.product_price_element%product) 
+                     print(product_elements)
+
                      for element in product_elements:                           
                         product_price = element.text                                   
-                        product_price = re.findall(r'\b\d+\b', product_price)                        
+                        product_price = re.findall(r'\b\d+\b', product_price)
+                        print(product_price)
+
                         if int(product_price[0]) < price_product:                   
-                           price_product = int(product_price[0])                               
+                           price_product = int(product_price[0])
+                           print(price_product)
+                                                      
                   result_flag = self.click_element(self.product_add_element%(product,price_product))
                   # self.conditional_write(result_flag,
                                 # positive='Successfully added products',
@@ -170,6 +185,7 @@ class weathershopper_tests():
                                 # level='debug')        
 
                   return result_flag
+                  print(result_flag)
 
                   ############################ end ########################################################
 
@@ -217,7 +233,8 @@ class weathershopper_tests():
             if link is not None:
                 link.click()
                 result_flag=True
-                self.wait(wait_time)
+                # self.wait(wait_time)
+                self.driver.implicitly_wait(wait_time)
         except Exception as e:
            
            print(e)
