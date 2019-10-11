@@ -48,9 +48,11 @@ class weathershopper_tests():
                   time.sleep(5)
 
                   #############################code from framework########################################
+                  result_flag = False
+                 
+                  for num in range(1,2):
 
-                  result_flag = False   
-                  for product in self.product_sunscreens_category:
+                    for product in self.product_sunscreens_category:
                      price_product = 100000          
                      product_elements = self.get_elements(self.product_price_element%product)
                      print(product_elements)
@@ -65,7 +67,11 @@ class weathershopper_tests():
                            price_product = int(product_price[0]) 
                            print(price_product)
 
-                  self.click_element(self.product_add_element%(product,price_product))
+                           self.click_element(self.product_add_element%(product,price_product))
+
+                    num =+ num
+                  print(num)
+
                   time.sleep(15)
                   self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
                   print("All items added")
@@ -84,8 +90,11 @@ class weathershopper_tests():
                   time.sleep(5)
                   #############################code from framework########################################
 
-                  result_flag = False   
-                  for product in self.product_moisturizers_category:
+                  result_flag = False
+                  
+                  for num in range(1,2):
+
+                    for product in self.product_moisturizers_category:
                      price_product = 100000          
                      product_elements = self.get_elements(self.product_price_element%product) 
                      print(product_elements)
@@ -99,9 +108,14 @@ class weathershopper_tests():
                            price_product = int(product_price[0])
                            print(price_product)
 
-                  self.click_element(self.product_add_element%(product,price_product))
+                           self.click_element(self.product_add_element%(product,price_product))
+
+                    num =+ num
+                  print(num)
+
                   time.sleep(15)
                   self.driver.find_element_by_xpath("//button[@class='thin-text nav-link' and contains(@onclick,'goToCart')]").click()
+
                   print("All items added")
                   return result_flag
                   ############################ end ########################################################
