@@ -95,6 +95,8 @@ class weathershopper_tests():
             print(result_data)
             print(len(result_data))
             print("All items are added on cart")
+            element = self.driver.find_element_by_xpath("//p[@id='total']")
+            print(element.text.encode('utf-8'))
             self.driver.save_screenshot("C:\\Users\\Rahul Bhave Qxf2\\code\\rahul-qxf2\\selenium_python\\Screenshots\\PaymentCheckCart.png")
             time.sleep(10)
             
