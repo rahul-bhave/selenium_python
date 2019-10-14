@@ -50,14 +50,26 @@ class weathershopper_tests():
                   print("You are on Buy Sunscreens page")
                   time.sleep(5)
 
+                  ########################code for maximum#######################
+
+                  link= self.driver.find_element_by_xpath("//button[contains(@onclick,'350')]")
+                  link.click()
+                  time.sleep(5)
+                  self.driver.save_screenshot("C:\\Users\\Rahul Bhave Qxf2\\code\\rahul-qxf2\\selenium_python\\Screenshots\\SunScreens.png")
+                  print ("found it!")
+
                   ###################Code for adding all items##############
-                  links = self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]")
+                  #links = self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]")
                   #click on each of those links
-                  for link in links:
-                      link.location_once_scrolled_into_view
-                      link.click()
-                      time.sleep(5)
-                  print("All items added")
+                  #for link in links:
+                      #link.location_once_scrolled_into_view
+                      #onclick_text = link.get_attribute('onclick')
+                      #if onclick_text and re.search('360', onclick_text):
+                        #print ("found it!")
+                        #link.click()
+                        #time.sleep(5)
+                  #print("All items added")
+                  #print("All items added")
                   
                
                   #############################code from framework########################################
@@ -102,14 +114,26 @@ class weathershopper_tests():
                if is_screen_visible.is_displayed():
                   print("You are on Buy Moisturizers page")
                   time.sleep(5)
+
+                  ############################################Code for maximum#########################
+                   
+                  link= self.driver.find_element_by_xpath("//button[contains(@onclick,'365')]")
+                  link.click()
+                  time.sleep(5)
+                  self.driver.save_screenshot("C:\\Users\\Rahul Bhave Qxf2\\code\\rahul-qxf2\\selenium_python\\Screenshots\\Moisturiser.png")
+                  print ("found it!")
+                  
                   #### Code for adding all items #########
-                  links = self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]")
+                  #links = self.driver.find_elements_by_xpath("//button[@class='btn btn-primary' and contains(text(),'Add')]")
                   # click on each of those links
-                  for link in links:
-                      link.location_once_scrolled_into_view
-                      link.click()
-                      time.sleep(5)
-                  print("All items added")
+                  #for link in links:
+                      #link.location_once_scrolled_into_view
+                      #onclick_text = link.get_attribute('onclick')
+                      #if onclick_text and re.search('360', onclick_text):
+                        #print ("found it!")
+                        #link.click()
+                        #time.sleep(5)
+                  # print("All items added")
 
                   
                    #############################code from framework########################################
