@@ -64,7 +64,7 @@ class weathershopper_tests():
 
                   result_flag = False   
                   for product in self.product_sunscreens_category:
-                     price_product = 100000          
+                     price_product = 10000         
                      product_elements = self.get_elements(self.product_price_element%product)
                      print(product_elements)
 
@@ -116,7 +116,7 @@ class weathershopper_tests():
 
                   result_flag = False   
                   for product in self.product_moisturizers_category:
-                     price_product = 100000          
+                     price_product = 10000      
                      product_elements = self.get_elements(self.product_price_element%product) 
                      print(product_elements)
 
